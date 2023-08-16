@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DesignPatterns\Singleton\SingletonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('/singleton')->group( function () { 
+    Route::get('', [SingletonController::class, 'index'])->name('singleton.index');
 });
